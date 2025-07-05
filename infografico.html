@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infográfico: Consultoria Jurídica para Empresa de Terceirização</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 
+    Infographic Plan: 
+    1. Hook: The outsourcing market opportunity vs. the significant legal risks.
+    2. Foundation: Key legal requirements for company setup, highlighting capital needs.
+    3. Risk Mitigation: Visualize the due diligence process condos perform, showing why compliance is a competitive advantage.
+    4. The Solution: Detail the legal package with charts for service scope, time allocation, and cost-benefit analysis against OAB minimums.
+    5. The Partnership: Outline the essential clauses of the legal services contract.
+    6. Conclusion: Frame the legal service as a strategic investment for growth.
+
+    Visualization Choices:
+    - Capital Social Requirement: Bar Chart (Goal: Compare) - Justification: Clearly shows the direct relationship between employee count and required capital. Library: Chart.js (Canvas). NO SVG.
+    - Monthly Time Allocation: Donut Chart (Goal: Show Composition) - Justification: Gives a quick, easy-to-digest visual of how legal effort is distributed. Library: Chart.js (Canvas). NO SVG.
+    - OAB Fee Comparison: Horizontal Bar Chart (Goal: Compare) - Justification: Effectively compares the value of the integrated package against the higher sum of individual minimum fees, demonstrating cost-effectiveness. Library: Chart.js (Canvas). NO SVG.
+    - Due Diligence Process: Flowchart (Goal: Organize Process) - Justification: Simplifies the complex documentation requirements for the client, breaking it into clear stages. Method: Structured HTML/CSS with Tailwind. NO SVG, NO MERMAID JS.
+    
+    Palette: Brilliant Blues
+    NO SVG was used. All charts are rendered on Canvas via Chart.js.
+    NO MERMAID JS was used. The flowchart is built with structured HTML and Tailwind CSS.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; 
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .text-shadow {
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="text-[#051923]">
+
+    <header class="bg-[#003554] text-white p-6 md:p-10 text-center shadow-lg">
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 text-shadow">Consultoria Jurídica Estratégica</h1>
+        <p class="text-lg md:text-xl text-[#90e0ef]">Navegando a Complexidade da Terceirização para Condomínios</p>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="intro" class="text-center mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#006494] mb-4">Uma Grande Oportunidade, Um Risco Iminente</h2>
+            <p class="max-w-3xl mx-auto text-base md:text-lg">A Lei nº 13.429/2017 abriu as portas do mercado de terceirização. No entanto, com essa oportunidade vem a <strong class="text-[#c1121f]">responsabilidade subsidiária</strong>: condomínios podem ser legalmente responsáveis por falhas trabalhistas e fiscais da sua empresa. A conformidade legal não é opcional, é sua maior vantagem competitiva.</p>
+        </section>
+
+        <section id="foundation" class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#006494] text-center mb-8">Construindo sua Empresa em Bases Sólidas</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-[#003554] mb-4 text-center">Requisito Crítico: Capital Social Mínimo</h3>
+                    <p class="text-sm text-center mb-4">A lei exige um capital social compatível com o número de funcionários, uma garantia de solidez para seus clientes.</p>
+                    <div class="chart-container">
+                        <canvas id="capitalSocialChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-[#003554] mb-4 text-center">Serviços Mais Procurados por Condomínios</h3>
+                     <ul class="space-y-3">
+                        <li class="flex items-center"><span class="text-2xl mr-3">🚪</span> <span class="font-semibold">Portaria e Controle de Acesso</span></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🧹</span> <span class="font-semibold">Limpeza e Conservação</span></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🛡</span> <span class="font-semibold">Zeladoria e Segurança</span></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🌿</span> <span class="font-semibold">Jardinagem e Manutenção de Áreas Verdes</span></li>
+                        <li class="flex items-center"><span class="text-2xl mr-3">🔧</span> <span class="font-semibold">Manutenção Predial Geral</span></li>
+                    </ul>
+                    <p class="text-sm mt-4 text-center">Sua empresa precisa estar preparada para oferecer esses serviços com máxima eficiência e total conformidade legal.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="due-diligence" class="mb-12 md:mb-16 bg-white p-6 md:p-8 rounded-lg shadow-lg">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#006494] text-center mb-2">A Prova de Fogo: O Processo de Due Diligence do Condomínio</h2>
+            <p class="max-w-3xl mx-auto text-base text-center mb-8">Antes de assinar um contrato, todo condomínio diligente irá investigar sua empresa. Estar preparado não é uma opção, é um requisito para fechar negócio. Veja o que eles vão exigir:</p>
+            <div class="flex flex-col md:flex-row justify-center items-start gap-4">
+                <div class="w-full md:w-2/5 bg-blue-50 p-4 rounded-lg border-l-4 border-[#0582CA]">
+                    <h3 class="font-bold text-lg text-[#006494]">FASE 1: Antes da Contratação</h3>
+                    <ul class="mt-2 list-disc list-inside text-sm space-y-1">
+                        <li>Contrato Social atualizado</li>
+                        <li>Certidões Negativas (Federais, Estaduais, Municipais, INSS)</li>
+                        <li>Certidões de Processos (Cíveis, Trabalhistas) da empresa e sócios</li>
+                        <li>Referências de clientes e bancárias</li>
+                    </ul>
+                </div>
+                <div class="flex items-center justify-center h-full text-4xl text-[#0582CA] font-bold transform md:rotate-0 rotate-90">
+                    →
+                </div>
+                <div class="w-full md:w-2/5 bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                    <h3 class="font-bold text-lg text-green-700">FASE 2: Durante o Contrato (Mensalmente)</h3>
+                    <ul class="mt-2 list-disc list-inside text-sm space-y-1">
+                        <li>Comprovação de pagamento de salários (holerites)</li>
+                        <li>Guias de recolhimento de tributos (FGTS, INSS)</li>
+                        <li>Manutenção de todas as certidões em dia</li>
+                        <li>Ficha cadastral dos funcionários alocados</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#006494] text-center mb-8">Seu Escudo Legal: Nosso Pacote de Consultoria Mensal</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="bg-white p-6 rounded-lg shadow-md order-2 lg:order-1">
+                    <h3 class="text-xl font-semibold text-[#003554] mb-4 text-center">Alocação de Esforço Jurídico</h3>
+                    <p class="text-sm text-center mb-4">Nossa consultoria é um ecossistema completo, com foco nas áreas de maior risco e impacto para o seu negócio.</p>
+                    <div class="chart-container h-72 md:h-96">
+                        <canvas id="servicesDoughnutChart"></canvas>
+                    </div>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md order-1 lg:order-2">
+                    <h3 class="text-xl font-semibold text-[#003554] mb-4">O que está incluído?</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Societário e Empresarial:</strong> Estruturação e manutenção legal da sua empresa.</li>
+                        <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Contratual:</strong> Elaboração de contratos à prova de falhas com condomínios e colaboradores.</li>
+                        <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Trabalhista Preventivo:</strong> Mitigação de riscos de vínculo empregatício e passivos.</li>
+                        <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Tributário Estratégico:</strong> Escolha do regime ideal e otimização fiscal.</li>
+                        <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Compliance e LGPD:</strong> Conformidade e proteção de dados.</li>
+                         <li class="p-2 bg-gray-50 rounded"><strong class="text-[#0582CA]">Gestão de Riscos:</strong> Acompanhamento contínuo de certidões e regularidade fiscal.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="investment" class="mb-12 md:mb-16 bg-white p-6 md:p-8 rounded-lg shadow-lg">
+             <h2 class="text-2xl md:text-3xl font-bold text-[#006494] text-center mb-2">Um Investimento Inteligente, Não um Custo</h2>
+            <p class="max-w-3xl mx-auto text-base text-center mb-8">Contratar cada especialidade separadamente teria um custo significativamente maior, segundo os valores mínimos da OAB/SP. Nosso pacote integrado oferece uma assessoria completa por um valor estratégico.</p>
+            <div class="chart-container" style="height: 450px;">
+                <canvas id="investmentChart"></canvas>
+            </div>
+        </section>
+
+         <section id="contract" class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#006494] text-center mb-8">As Bases da Nossa Parceria: Cláusulas Essenciais</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">1. Objeto e Escopo</h3>
+                    <p class="text-sm mt-2">Define claramente todos os serviços de consultoria preventiva incluídos, excluindo atuações em processos judiciais (contencioso), que são cobrados à parte.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">2. Remuneração e Reajuste</h3>
+                    <p class="text-sm mt-2">Estabelece o valor mensal fixo (retainer), a data de pagamento e o índice de reajuste anual para garantir previsibilidade para ambas as partes.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">3. Responsabilidades</h3>
+                    <p class="text-sm mt-2">Delimita os deveres do advogado (zelo, técnica) e do cliente (fornecer informações), e esclarece que despesas extras (taxas, viagens) não estão inclusas.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">4. Confidencialidade e LGPD</h3>
+                    <p class="text-sm mt-2">Assegura o sigilo total sobre as informações do seu negócio e estabelece a conformidade com a Lei Geral de Proteção de Dados.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">5. Vigência e Rescisão</h3>
+                    <p class="text-sm mt-2">Define o prazo do contrato, as regras para renovação automática e as condições claras para uma eventual rescisão antecipada.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-[#00A6FB]">
+                    <h3 class="font-bold text-lg text-[#003554]">6. Flexibilidade</h3>
+                    <p class="text-sm mt-2">Prevê revisões periódicas do escopo e dos honorários para que o serviço se adapte ao crescimento e às novas necessidades da sua empresa.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#051923] text-white p-6 text-center">
+        <p>Este infográfico é uma ferramenta de visualização baseada na proposta de consultoria.</p>
+        <p class="text-sm text-gray-400 mt-2">© 2025 - Consultoria Jurídica Estratégica. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const brilliantBlues = ['#00A6FB', '#0582CA', '#006494', '#003554', '#051923', '#4dabf7'];
+        const successColor = '#28a745';
+        const warningColor = '#ffc107';
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#051923',
+                        font: {
+                            size: 12,
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#051923',
+                    titleColor: '#FFFFFF',
+                    bodyColor: '#FFFFFF',
+                    borderColor: '#00A6FB',
+                    borderWidth: 1
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: '#051923', beginAtZero: true },
+                    grid: { color: '#e0e0e0' }
+                },
+                x: {
+                    ticks: { color: '#051923' },
+                    grid: { color: '#e0e0e0' }
+                }
+            }
+        };
+        
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            let wrapped = [];
+            let words = str.split(' ');
+            let currentLine = '';
+            for (let i = 0; i < words.length; i++) {
+                if ((currentLine + ' ' + words[i]).length > maxWidth) {
+                    wrapped.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += words[i] + ' ';
+            }
+            wrapped.push(currentLine.trim());
+            return wrapped;
+        }
+
+        const capitalSocialCtx = document.getElementById('capitalSocialChart');
+        if (capitalSocialCtx) {
+            new Chart(capitalSocialCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Até 5 func.', '6-20 func.', '21-50 func.', '51-100 func.', '101-500 func.', '> 500 func.'],
+                    datasets: [{
+                        label: 'Capital Social Mínimo (R$)',
+                        data: [5000, 25000, 45000, 100000, 250000, 1000000],
+                        backgroundColor: brilliantBlues,
+                        borderColor: '#FFFFFF',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...commonChartOptions,
+                    scales: {
+                         y: {
+                            ticks: { 
+                                color: '#051923', 
+                                beginAtZero: true,
+                                callback: function(value) {
+                                    return 'R$ ' + new Intl.NumberFormat('pt-BR').format(value);
+                                }
+                            },
+                            grid: { color: '#e0e0e0' }
+                        },
+                        x: {
+                            ticks: { color: '#051923' },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
+
+        const servicesDoughnutCtx = document.getElementById('servicesDoughnutChart');
+        if (servicesDoughnutCtx) {
+            new Chart(servicesDoughnutCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Contratual', 'Trabalhista', 'Tributário', 'Gestão de Riscos', 'Empresarial', 'Compliance/LGPD', 'Regulatório'],
+                    datasets: [{
+                        label: 'Alocação de Tempo Estimada (Horas)',
+                        data: [12.5, 10, 8, 8, 10, 6.5, 5],
+                        backgroundColor: brilliantBlues,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                     plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#051923',
+                                font: { size: 11 },
+                                boxWidth: 15,
+                                padding: 15
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        const investmentCtx = document.getElementById('investmentChart');
+        if(investmentCtx) {
+            const rawLabels = [
+                'Consultoria Trabalhista Preventiva (<50 func.)', 
+                'Consultoria Tributária Estratégica (PME)',
+                'Consultoria Previdenciária Empresarial (<20 func.)',
+                'Consultoria Condominial Específica'
+            ];
+            const wrappedLabels = rawLabels.map(label => wrapLabel(label, 20));
+
+            new Chart(investmentCtx, {
+                type: 'bar',
+                data: {
+                    labels: wrappedLabels,
+                    datasets: [
+                        {
+                            label: 'Valor Mínimo OAB/SP (Individual)',
+                            data: [7938, 1905, 3175, 1412],
+                            backgroundColor: warningColor,
+                            borderColor: '#FFFFFF',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Estimativa Pacote Integrado Proposto',
+                            data: [8000, 0, 0, 0], 
+                            backgroundColor: successColor,
+                            borderColor: '#FFFFFF',
+                            borderWidth: 1,
+                            stack: 'combined',
+                            type: 'bar'
+                        }
+                    ]
+                },
+                options: {
+                    ...commonChartOptions,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            ticks: {
+                                color: '#051923',
+                                callback: function(value) {
+                                    return 'R$ ' + new Intl.NumberFormat('pt-BR').format(value);
+                                }
+                            },
+                             grid: { color: '#e0e0e0' }
+                        },
+                        y: {
+                             ticks: { color: '#051923', font: {size: 11} },
+                             grid: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'top', labels: { color: '#051923' } },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback,
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.x !== null) {
+                                        label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed.x);
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
